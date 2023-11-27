@@ -10,7 +10,7 @@ BiocManager::install("clusterProfiler")
 library(clusterProfiler)
 library(org.Hs.eg.db)
 
-significant_genes <- rownames(results[results$adj.P.Val < 0.05, ])
+significant_genes <- rownames(results[results$P.Value < 0.05, ])
 
 ego <- enrichGO(gene         = significant_genes,
                 OrgDb        = org.Hs.eg.db,

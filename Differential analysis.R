@@ -2,8 +2,8 @@
 
 library(limma)
 
-# Assuming the first half of your columns are "Vpr-Mac" and the second half are "Zs-Mac"
-conditions <- c(rep("Vpr-Mac", ncol(expr_data)/2), rep("Zs-Mac", ncol(expr_data)/2))
+# Correcting the conditions based on your data structure
+conditions <- rep(c("Vpr-Mac", "Zs-Mac"), ncol(expr_data) / 2)
 design <- model.matrix(~0 + conditions)
 colnames(design) <- levels(conditions)
 
